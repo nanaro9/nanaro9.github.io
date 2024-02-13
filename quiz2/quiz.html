@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+  <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="quizStyle.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victoryna | Dzīvnieki🐈</title>
+
+</head>
+
+<body>
+
+  <div class="hero"> 
+    <div class="elements">
+      <img src="Images/cat.png" class ="responsive" id="image">
+      <div class="question">*Jautājums*</div>
+      <div class="answerA">Atbilde A</div>
+      <div class="answerB">Atbilde B</div>
+      <div class="timer">
+        <div class="time_left_txt">Atlikušais Laiks</div>
+        <div class="timer_sec">15</div>
+      </div>
+      <button role="button" class="btn">Nākamais Jautājums!</button>
+      <div class="about">© Aleksis Počs 2024</div>
+    </div>
+  </div>
+
+  <div class="result_box">
+    <h2>Viktorīnas Rezultāti!</h2>
+      <span class="score_text">Jūs saņēmāt 0 punktus no 5</span>
+    <div class="buttons">
+      <button class="restart">Mēģināt Vēlreiz</button>
+      <button class="quit">Atgriezties</button>
+    </div>
+  </div>
+
+  <div class="vl"></div>
+
+  <script src="sketch.js"></script>
+  <script src="questions.js"></script>
+
+</body>
+
+</html>

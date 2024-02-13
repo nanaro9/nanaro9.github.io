@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victoryna | Sākums</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>  
+    <div class="container">
+            <section class="quiz-section">
+                <div class="selector-title">Izvēlies viktorīnu!</div>
+                <div class="selection-box">
+                    <button class="quiz1" role="button">Kosmoss🪐</button>
+                    <button class="quiz2" role="button">Dzīvnieki🐈</button>
+                    <button class="quiz3" role="button">Valstis🌏</button>
+                    <button class="quiz4" role="button">Matemātika🤓</button>
+                </div>
+            </section>
+            <section class="quiz-maker">
+                <div class="maker-title">Izveido Viktorīnu!</div>
+                <div class="addQuestions">
+                    <input id="questionInput" type="text" placeholder="Jautājums">
+                    <input id="AnswerInput1" type="text" placeholder="Pirmais atbildes variants">
+                    <input id="AnswerInput2" type="text" placeholder="Otrais atbildes variants">
+                    <input type="checkbox" id="correctAnswer1" name="answer1" value="Answer1">
+                    <input type="checkbox" id="correctAnswer2" name="answer2" value="Answer2">
+                  </div>
+                <div class="maker-box">
+                    <div class="create-progress">1. Jautājums no 5</div>
+                    <button class="continue_btn" role="button">Tālāk</button>
+    
+                </div>
+            </section>
+        
+        <div class="hero">
+                <div class="hero__title">Sveicināti!</div>
+                <button role="button" class="btn">Sākt!</button>
+                <div class="cube active"></div>
+                <div class="cube active"></div>
+                <div class="cube active"></div>
+                <div class="cube active"></div>
+                <div class="cube active"></div>
+                <div class="cube active"></div>
+                <div class="about">© Aleksis Počs 2024</div>
+        </div>
+    </div>
+    
+    <div class="popup-info">
+        <h2>Uzgaidi!</h2>
+        <span class="info">Lai sāktu viktorīnu jums būs vajadzīga kamera.</span>
+        <span class="info">Jūs varat izmēģināt kādu no jau gatavām viktorīnām, vai varat izveidot savu!</span>
+        <button class="exit-btn">X</button>
+        <div class="btn-group">
+            <a href="#" class="info-btn create-btn">Izveido!</a>
+            <a href="#" class="info-btn choose-btn">Izvēlies!</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="quiz0/questions.js"></script>
+</body>
+
+</html>
