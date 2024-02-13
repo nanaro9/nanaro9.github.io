@@ -153,15 +153,10 @@ function startTimer(time){
 
 const questionText = document.querySelector('.question');
 const result_box = document.querySelector('.result_box');
-const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
 quit_quiz.onclick = () => {
   location.href = "../index.html";
-}
-
-restart_quiz.onclick = () => {
-  window.location.reload();
 }
 
 next_btn.onclick = () => {
