@@ -109,10 +109,12 @@ function showAnswer(index){
   if (answerTextA.textContent == atbilde && winner == "LEFT"){
     answerTextA.style.color = "#00ff00";
     score++
+    console.log('LEFT')
   }
   if(answerTextB.textContent == atbilde && winner == "RIGHT"){
     answerTextB.style.color = "#00ff00";
     score++
+    console.log('RIGHT')
   }
   if (answerTextB.textContent == atbilde && winner == "LEFT"){
     answerTextB.style.color = "#00ff00";
@@ -122,6 +124,7 @@ function showAnswer(index){
     answerTextA.style.color = "#00ff00";
     answerTextB.style.color = "#ff0000";
   }
+  console.log(score)
 }
 
 const time_line = document.querySelector(".time_line");
