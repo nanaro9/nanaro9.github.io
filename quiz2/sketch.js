@@ -4,6 +4,7 @@ let detections = [];
 let people = [];
 let left = [];
 let right = [];
+let time_to_choose = true;
 let score = 0;
 
 const elements = document.querySelector('.elements')
@@ -29,12 +30,14 @@ function gotDetections(error, results) {
   }
   // console.log(people,detections.length,people.length);
 
-  for (let i = 0; i < people.length; i++) {
-    if (people[i].x < 240) {
-      right.push(people[i]);
-    }
-    else{
-      left.push(people[i]);
+  if(time_to_choose){
+    for (let i = 0; i < people.length; i++) {
+      if (people[i].x < 240) {
+        right.push(people[i]);
+      }
+      else{
+        left.push(people[i]);
+      }
     }
   }
 
@@ -96,18 +99,24 @@ function showAnswer(index){
   let winner
   if (left.length > right.length){
     winner = "LEFT"
-  }
-  else{
+  }else if(left.length < right.length){
     winner = "RIGHT"
+  }else if(left.length == 0 && right.length == 0){
+    winner = "NONE"
+  }else if(left.length == right.length){
+    winner = "DRAW"
   }
+
   // console.log(winner)
   if (answerTextA.textContent == atbilde && winner == "LEFT"){
     answerTextA.style.color = "#00ff00";
     score++
+    // console.log('LEFT SCORED',score)
   }
   if(answerTextB.textContent == atbilde && winner == "RIGHT"){
     answerTextB.style.color = "#00ff00";
     score++
+    // console.log('RIGHT SCORED',score)
   }
   if (answerTextB.textContent == atbilde && winner == "LEFT"){
     answerTextB.style.color = "#00ff00";
@@ -115,6 +124,14 @@ function showAnswer(index){
   }
   if (answerTextA.textContent == atbilde && winner == "RIGHT"){
     answerTextA.style.color = "#00ff00";
+    answerTextB.style.color = "#ff0000";
+  }
+  if (answerTextA.textContent == atbilde && winner == "NONE" || answerTextA.textContent == atbilde && winner == "DRAW"){
+    answerTextA.style.color = "#ff0000";
+    answerTextB.style.color = "#ff0000";
+  }
+  if (answerTextB.textContent == atbilde && winner == "NONE" || answerTextB.textContent == atbilde && winner == "DRAW"){
+    answerTextA.style.color = "#ff0000";
     answerTextB.style.color = "#ff0000";
   }
 }
@@ -140,6 +157,7 @@ function startTimer(time){
       if(time < 0){ //if timer is less than 0
           clearInterval(counter); //clear counter
           timeText.textContent = "Laiks Beidzies!"; //change the time text to time off
+          time_to_choose = false
           showAnswer(questionCount);
           next_btn.classList.add("show"); //show the next button if user selected any option
       }
@@ -170,6 +188,7 @@ next_btn.onclick = () => {
     startTimer(timeValue); //calling startTimer function
     showQuestion(questionCount);
     timeText.textContent = "Atlikušais Laiks!"; //change the timeText to Time Left
+    time_to_choose = true
     next_btn.classList.remove("show"); //hide the next button
     if(questionCount == 1){
       img.src = "Images/gorilla.png";
@@ -180,6 +199,7 @@ next_btn.onclick = () => {
     }
   }
   if (questionCount == 4 && next_btn.textContent != "Rezultāti"){
+    time_to_choose = true
     next_btn.textContent = "Rezultāti";
     img.src = "Images/pitons.png";
   }
